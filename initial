@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 echo "Ganyushin Server"
 apt-get update
 apt-get install xrdp
