@@ -1,2 +1,2 @@
-echo "Hello"
-echo # Server >> README.md
+echo "Ganyushin Server"
+sudo apt-get install xrdp
