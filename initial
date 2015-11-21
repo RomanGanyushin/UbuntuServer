@@ -1,2 +1,2 @@
-dir
+echo "Hello"
 echo # Server >> README.md
