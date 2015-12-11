@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include <vector>
 #include <boost/uuid/uuid.hpp>
@@ -17,14 +17,14 @@
 template<typename T>
 struct base_characteristics
 {
-	T intelligence; /// Интелект
-	T force;        /// Сила
-	T health;       /// Здоровье
-	T propensity_to_learn; /// Склонность к обучению
-	std::map<std::string, T> education; // Образование распределение по направлениям
-	T criminalism;  /// Криминальность
-	T happiness;    /// Ощущение счастья
-	T responsibility; /// Ответственность
+	T intelligence; /// РРЅС‚РµР»РµРєС‚
+	T force;        /// РЎРёР»Р°
+	T health;       /// Р—РґРѕСЂРѕРІСЊРµ
+	T propensity_to_learn; /// РЎРєР»РѕРЅРЅРѕСЃС‚СЊ Рє РѕР±СѓС‡РµРЅРёСЋ
+	std::map<std::string, T> education; // РћР±СЂР°Р·РѕРІР°РЅРёРµ СЂР°СЃРїСЂРµРґРµР»РµРЅРёРµ РїРѕ РЅР°РїСЂР°РІР»РµРЅРёСЏРј
+	T criminalism;  /// РљСЂРёРјРёРЅР°Р»СЊРЅРѕСЃС‚СЊ
+	T happiness;    /// РћС‰СѓС‰РµРЅРёРµ СЃС‡Р°СЃС‚СЊСЏ
+	T responsibility; /// РћС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚СЊ
 };
 
 base_characteristics<int> operator-(const base_characteristics<unsigned char>& a,
@@ -59,22 +59,22 @@ base_characteristics<int> operator-(const base_characteristics<unsigned char>& a
 
 struct individual
 {
-	boost::uuids::uuid uid;		/*Индетификатор*/
-	boost::uuids::uuid nationality;  /*Национальность*/
-	unsigned char gender;		/*Пол*/
-	boost::gregorian::date  date_of_birth; /*Дата рождения*/
-	base_characteristics<unsigned char> characteristics; /*Базовые характеристики*/
-	std::map<std::string, std::string> additional_characteristics; /*Дополнительные характеристики*/
-	std::vector<std::pair<boost::uuids::uuid, unsigned char>> links; /*Родственные и дружеские связи*/
-	boost::uuids::uuid work_contract; /*Номер трудового договора*/
-	boost::uuids::uuid housing_registration; /*Прописка*/
-	std::vector<std::pair<boost::uuids::uuid, boost::uuids::uuid>> bank_accounts; /*Банковские счета Банк/Счет*/
-	std::vector<boost::uuids::uuid> real_estate; /*Недвижимость в собственности*/
-	std::vector<boost::uuids::uuid> transport;   /*Транспорт в собственности*/
-	std::vector<std::pair<boost::uuids::uuid, double>> cash; /*Наличность Код валюты/Количество*/
-	std::vector<boost::uuids::uuid> things; /*Вещи в собственности*/
-	std::map <std::string, std::string> additional; /*Дополнительные показатели*/
-	geo_postion position; /*Позиция*/
+	boost::uuids::uuid uid;		/*РРЅРґРµС‚РёС„РёРєР°С‚РѕСЂ*/
+	boost::uuids::uuid nationality;  /*РќР°С†РёРѕРЅР°Р»СЊРЅРѕСЃС‚СЊ*/
+	unsigned char gender;		/*РџРѕР»*/
+	boost::gregorian::date  date_of_birth; /*Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ*/
+	base_characteristics<unsigned char> characteristics; /*Р‘Р°Р·РѕРІС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё*/
+	std::map<std::string, std::string> additional_characteristics; /*Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё*/
+	std::vector<std::pair<boost::uuids::uuid, unsigned char>> links; /*Р РѕРґСЃС‚РІРµРЅРЅС‹Рµ Рё РґСЂСѓР¶РµСЃРєРёРµ СЃРІСЏР·Рё*/
+	boost::uuids::uuid work_contract; /*РќРѕРјРµСЂ С‚СЂСѓРґРѕРІРѕРіРѕ РґРѕРіРѕРІРѕСЂР°*/
+	boost::uuids::uuid housing_registration; /*РџСЂРѕРїРёСЃРєР°*/
+	std::vector<std::pair<boost::uuids::uuid, boost::uuids::uuid>> bank_accounts; /*Р‘Р°РЅРєРѕРІСЃРєРёРµ СЃС‡РµС‚Р° Р‘Р°РЅРє/РЎС‡РµС‚*/
+	std::vector<boost::uuids::uuid> real_estate; /*РќРµРґРІРёР¶РёРјРѕСЃС‚СЊ РІ СЃРѕР±СЃС‚РІРµРЅРЅРѕСЃС‚Рё*/
+	std::vector<boost::uuids::uuid> transport;   /*РўСЂР°РЅСЃРїРѕСЂС‚ РІ СЃРѕР±СЃС‚РІРµРЅРЅРѕСЃС‚Рё*/
+	std::vector<std::pair<boost::uuids::uuid, double>> cash; /*РќР°Р»РёС‡РЅРѕСЃС‚СЊ РљРѕРґ РІР°Р»СЋС‚С‹/РљРѕР»РёС‡РµСЃС‚РІРѕ*/
+	std::vector<boost::uuids::uuid> things; /*Р’РµС‰Рё РІ СЃРѕР±СЃС‚РІРµРЅРЅРѕСЃС‚Рё*/
+	std::map <std::string, std::string> additional; /*Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїРѕРєР°Р·Р°С‚РµР»Рё*/
+	geo_postion position; /*РџРѕР·РёС†РёСЏ*/
 
 	const bool is_marred() const
 	{
