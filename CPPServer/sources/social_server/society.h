@@ -1,5 +1,5 @@
-/* 
-Описание структур социально обустройства
+п»ї/* 
+РћРїРёСЃР°РЅРёРµ СЃС‚СЂСѓРєС‚СѓСЂ СЃРѕС†РёР°Р»СЊРЅРѕ РѕР±СѓСЃС‚СЂРѕР№СЃС‚РІР°
 
 */
 #pragma once
@@ -11,11 +11,11 @@ struct work_contract
 {
 	boost::uuids::uuid hirer;
 	boost::uuids::uuid employee;
-	unsigned char number_of_working_days; // кол-во дней в неделю
-	unsigned char working_hours;          // продолжительность рабочего дня
-	double daily_wage;                    // дневная заработная плата в нац. валюте
-	double payment_disability;            // оплата по нетрудоспособности
-	std::map <std::string, double>  fringe_benefits; // дополнительные выплаты
+	unsigned char number_of_working_days; // РєРѕР»-РІРѕ РґРЅРµР№ РІ РЅРµРґРµР»СЋ
+	unsigned char working_hours;          // РїСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ СЂР°Р±РѕС‡РµРіРѕ РґРЅСЏ
+	double daily_wage;                    // РґРЅРµРІРЅР°СЏ Р·Р°СЂР°Р±РѕС‚РЅР°СЏ РїР»Р°С‚Р° РІ РЅР°С†. РІР°Р»СЋС‚Рµ
+	double payment_disability;            // РѕРїР»Р°С‚Р° РїРѕ РЅРµС‚СЂСѓРґРѕСЃРїРѕСЃРѕР±РЅРѕСЃС‚Рё
+	std::map <std::string, double>  fringe_benefits; // РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РІС‹РїР»Р°С‚С‹
 };
 struct work_contract_service
 {
@@ -77,10 +77,10 @@ struct society_query
 {
 	society_query(society& _society) :m_society(_society){};
 
-	/*Функция возвращает наборы пар возможных встреч*/
+	/*Р¤СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ РЅР°Р±РѕСЂС‹ РїР°СЂ РІРѕР·РјРѕР¶РЅС‹С… РІСЃС‚СЂРµС‡*/
 	std::vector <std::pair<individual*, individual*>> meeting(
-		const double& area_of_visibility = 0, /*Область видимости*/
-		const unsigned int max_pair = 100/*Максимальное кол-во пар*/
+		const double& area_of_visibility = 0, /*РћР±Р»Р°СЃС‚СЊ РІРёРґРёРјРѕСЃС‚Рё*/
+		const unsigned int max_pair = 100/*РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»-РІРѕ РїР°СЂ*/
 		)
 	{
 		std::vector <std::pair<individual*, individual*>> result;
@@ -96,7 +96,7 @@ struct society_query
 	{
 		std::vector <individual*> result;
 		result.reserve(m_society.individuals.size());
-		// ToDo: Нужен быстрый алгорим по формированию возможных пар
+		// ToDo: РќСѓР¶РµРЅ Р±С‹СЃС‚СЂС‹Р№ Р°Р»РіРѕСЂРёРј РїРѕ С„РѕСЂРјРёСЂРѕРІР°РЅРёСЋ РІРѕР·РјРѕР¶РЅС‹С… РїР°СЂ
 		for (individual& it : m_society.individuals) result.push_back(&it);
 		return result;
 	}
@@ -163,16 +163,16 @@ class default_generate_society
 public:
 	struct distibution
 	{
-		boost::random::discrete_distribution<>  sex; /// Соотношение мужчин и женщин
-		boost::random::discrete_distribution<>  age; // Распередение возраста
-		boost::random::discrete_distribution<>  criminalism; // Распередение cклонности к криминалу
-		boost::random::discrete_distribution<>  force;        /// Распередение силы
-		boost::random::discrete_distribution<>  health;       /// Распередение здоровье
-		boost::random::discrete_distribution<>  propensity_to_learn; /// Распередение склонности к обучению
-		std::map<std::string, boost::random::discrete_distribution<> > education; // Образование распределение по направлениям
-		boost::random::discrete_distribution<>  happiness;    /// Распередение ощущения счастья
-		boost::random::discrete_distribution<>  responsibility; /// Распередение чувства ответственности
-		boost::random::discrete_distribution<>  intelligence;  /// Распередение интелекта
+		boost::random::discrete_distribution<>  sex; /// РЎРѕРѕС‚РЅРѕС€РµРЅРёРµ РјСѓР¶С‡РёРЅ Рё Р¶РµРЅС‰РёРЅ
+		boost::random::discrete_distribution<>  age; // Р Р°СЃРїРµСЂРµРґРµРЅРёРµ РІРѕР·СЂР°СЃС‚Р°
+		boost::random::discrete_distribution<>  criminalism; // Р Р°СЃРїРµСЂРµРґРµРЅРёРµ cРєР»РѕРЅРЅРѕСЃС‚Рё Рє РєСЂРёРјРёРЅР°Р»Сѓ
+		boost::random::discrete_distribution<>  force;        /// Р Р°СЃРїРµСЂРµРґРµРЅРёРµ СЃРёР»С‹
+		boost::random::discrete_distribution<>  health;       /// Р Р°СЃРїРµСЂРµРґРµРЅРёРµ Р·РґРѕСЂРѕРІСЊРµ
+		boost::random::discrete_distribution<>  propensity_to_learn; /// Р Р°СЃРїРµСЂРµРґРµРЅРёРµ СЃРєР»РѕРЅРЅРѕСЃС‚Рё Рє РѕР±СѓС‡РµРЅРёСЋ
+		std::map<std::string, boost::random::discrete_distribution<> > education; // РћР±СЂР°Р·РѕРІР°РЅРёРµ СЂР°СЃРїСЂРµРґРµР»РµРЅРёРµ РїРѕ РЅР°РїСЂР°РІР»РµРЅРёСЏРј
+		boost::random::discrete_distribution<>  happiness;    /// Р Р°СЃРїРµСЂРµРґРµРЅРёРµ РѕС‰СѓС‰РµРЅРёСЏ СЃС‡Р°СЃС‚СЊСЏ
+		boost::random::discrete_distribution<>  responsibility; /// Р Р°СЃРїРµСЂРµРґРµРЅРёРµ С‡СѓРІСЃС‚РІР° РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚Рё
+		boost::random::discrete_distribution<>  intelligence;  /// Р Р°СЃРїРµСЂРµРґРµРЅРёРµ РёРЅС‚РµР»РµРєС‚Р°
 	};
 public:
 	

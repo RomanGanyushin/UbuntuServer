@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <algorithm>
 #include <functional> 
 
@@ -67,7 +67,7 @@ inline boost::gregorian::days random_day_365()
 		(gl_generator, boost::uniform_int<>(0, 365))());
 }
 
-/*Формирует случайный вектор индексов без повтора*/
+/*Р¤РѕСЂРјРёСЂСѓРµС‚ СЃР»СѓС‡Р°Р№РЅС‹Р№ РІРµРєС‚РѕСЂ РёРЅРґРµРєСЃРѕРІ Р±РµР· РїРѕРІС‚РѕСЂР°*/
 std::vector<size_t> random_index_vector(size_t size)
 {
 	
